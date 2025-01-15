@@ -9,6 +9,9 @@ declare module "@remix-run/node" {
 }
 
 export default defineConfig({
+  server: {
+    host: "127.0.0.1",
+  },
   plugins: [
     remix({
       future: {
@@ -21,4 +24,5 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  ssr: { noExternal: [/^@keystatic\//, "minimatch"] },
 });
